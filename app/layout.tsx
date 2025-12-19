@@ -1,27 +1,23 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Providers from "./providers";
+import './globals.css';
+import { Inter } from 'next/font/google';
+import Providers from './providers';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: "Injective Ninja Quest | Learn Blockchain",
-  description: "An interactive story-driven quiz game to learn about Injective blockchain and Ninja Labs community. Test your knowledge and become a blockchain ninja!",
-  keywords: ["Injective", "blockchain", "DeFi", "Web3", "Ninja Labs", "quiz", "learning"],
+export const metadata = {
+  title: 'Injective Ninja Quest | Master Blockchain',
+  description: 'Learn Injective blockchain through an interactive story-driven quiz game',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} bg-dark-bg text-dark-text antialiased`}>
-        <Providers>
-          {children}
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
